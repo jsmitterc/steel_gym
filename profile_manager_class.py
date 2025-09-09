@@ -17,7 +17,7 @@ class ProfileManager:
     def __init__(self, api_key: str = None, base_url: str = None):
 
         self.api_key = api_key or os.getenv("FACE_RECOGNITION_API_KEY")
-        self.base_url = base_url or "http://localhost:3000/api/v1"
+        self.base_url = base_url or "https://face-recognition-app-nine.vercel.app/api/v1"
         self.headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
