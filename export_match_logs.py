@@ -8,7 +8,7 @@ import sys
 import argparse
 from datetime import datetime, timedelta
 from match_log_manager import MatchLogManager
-
+import time
 def main():
     parser = argparse.ArgumentParser(description='Export match logs from face recognition API to CSV')
     parser.add_argument('-o', '--output', default='match_logs.csv', help='Output CSV filename (default: match_logs.csv)')
@@ -110,9 +110,11 @@ def main():
     
     except KeyboardInterrupt:
         print("\nOperation cancelled by user")
+        time.sleep(60)
         sys.exit(1)
     except Exception as e:
         print(f"Unexpected error: {e}")
+        time.sleep(60)
         sys.exit(1)
 
 if __name__ == "__main__":
