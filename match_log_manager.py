@@ -5,6 +5,7 @@ Handles fetching match logs from the face recognition API and exporting to CSV
 """
 
 import csv
+import time
 import requests
 import json
 from typing import List, Dict, Optional
@@ -156,6 +157,7 @@ class MatchLogManager:
             
         except Exception as e:
             print(f"Error exporting to CSV: {e}")
+            time.sleep(60)
             return False
     
     def get_date_range_logs(self, days_back: int = 30) -> List[Dict]:
